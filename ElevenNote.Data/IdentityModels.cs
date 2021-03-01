@@ -35,7 +35,7 @@ namespace ElevenNote.Data
         public DbSet<Note> Notes { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            
+
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();
@@ -45,22 +45,21 @@ namespace ElevenNote.Data
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
-        
-    }
-}
-public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
-{
-    public IdentityUserLoginConfiguration()
-    {
-        HasKey(iul => iul.UserId);
-    }
-}
-public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
-{
-    public IdentityUserRoleConfiguration()
-    {
-        HasKey(iur => iur.UserId);
-    }
-}
 
+    }
+
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
+        {
+            HasKey(iul => iul.UserId);
+        }
+    }
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(iur => iur.UserId);
+        }
+    }
 }
